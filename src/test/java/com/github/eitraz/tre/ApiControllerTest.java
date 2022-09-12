@@ -23,6 +23,6 @@ class ApiControllerTest {
                 .exchange()
                 .expectStatus().isOk()
                 .expectBody()
-                .jsonPath("$.total").isEqualTo(5.0);
+                .jsonPath("$.total").isEqualTo(0.73);
     }
 }
