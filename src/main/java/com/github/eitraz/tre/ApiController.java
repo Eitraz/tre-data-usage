@@ -24,6 +24,7 @@ public class ApiController {
                 .map(sharedData -> {
                     return Map.of(
                             "total", sharedData.used(),
+                            "remaining", sharedData.remaining(),
                             "subscriptions", sharedData.subscriptions().stream()
                                     .collect(Collectors.toMap(
                                             subscriptionData -> formatName(subscriptionData.name()),
