@@ -10,7 +10,7 @@ RUN mvn clean package -Pdocker
 FROM openjdk:17-alpine
 
 # Copy app from builder
-COPY --from=builder /tre/target/tre-0.0.1.jar /opt/tre/tre.jar
+COPY --from=builder /tre/target/tre-data-usage-0.0.1.jar /opt/tre/tre-data-usage.jar
 
 # Create user/group that our application will be running as
 RUN addgroup --gid 1001 tre \
@@ -20,5 +20,5 @@ RUN addgroup --gid 1001 tre \
 # Start tre backend
 WORKDIR /opt/tre/
 USER tre
-ENTRYPOINT java -jar tre.jar
+ENTRYPOINT java -jar tre-data-usage.jar
 EXPOSE 8080
